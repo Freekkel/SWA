@@ -1,4 +1,5 @@
 <?php
+include("ShoppingCartMySQL.php");
 class ShoppingCartAuth extends ShoppingCartMySQL
 {
         public function __construct($database, $user, $password) 
@@ -81,4 +82,7 @@ class ShoppingCartAuth extends ShoppingCartMySQL
             } catch (PDOException $e) {
                 echo "Fehler: ".$e->getMessage();
             }
-}
+
+            }
+        }
+
