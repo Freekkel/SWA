@@ -21,7 +21,7 @@ class ShoppingCartAuth extends ShoppingCartMySQL
         
         function checkAuth($userid, $password){
         
-            $hashpass = md5($password);
+            $hashpass = /**md5(**/$password;
     
             $stmt = $this->db->prepare("SELECT userid, password FROM `user` WHERE userid = :userid AND password = :hashpass ");
             $stmt->bindParam(":userid", $userid);

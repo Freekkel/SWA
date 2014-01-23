@@ -9,7 +9,9 @@ include("ShoppingCartAuth.php");
     </head>
     <body>
         <?php
-            echo md5("test");
+            if(isset($_POST['state'])){
+            echo $_POST['state'];
+            }
             ?>
         <h1 align="center"> Willkommen im Webshop <br /> Log-in </h1>
         
@@ -25,16 +27,19 @@ include("ShoppingCartAuth.php");
         <?php
             if(isset($_POST['state'])){
                 $database = 'swa006';
-                $user = 'swa006';
-                $password = "Ahjee9U";
+                $user = 'root';
+                $password = "";
                 $auth = new ShoppingCartAuth($database, $user, $password);
                 $check = $auth->checkAuth($_POST['name'], $_POST['password']);
                 if($check){
+                    echo "success";
                     session_start();
                     $_SESSION['cart'] = new Shop($database, $user, $password);
                     $_SESSION['loggedin'] = true;
                     header("Location: 11.1-webshop.php");
                 }
+                else
+                    echo "fail";
             }
         ?>
     </body>
