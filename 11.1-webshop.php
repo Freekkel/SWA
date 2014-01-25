@@ -14,7 +14,7 @@
                 Hotdog:<input name="Hotdog" type="text" /> Anzahl <br/>
                 Ananas:<input name="Ananas" type="text" /> Anzahl
             </fieldset>
-        <input name="submit_saving" type="submit" class="add_button" value="add" />
+        <input name="addButton" type="submit" value="zum Warenkorb hinzufügen" />
         </form>
         
     </body>
