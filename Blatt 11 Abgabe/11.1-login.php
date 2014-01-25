@@ -23,6 +23,7 @@
                 <input name="password" type="text" value="Test" />Password<br />
             </fieldset>
             <input name="check_auth" type="submit" value="log in" />
+            <input name="logout" type="submit" value="ausloggen" />
         </form>
         
         <?php
@@ -34,14 +35,30 @@
             if(isset($_POST['check_auth']) && strcmp($_POST['check_auth'],'log in') == 0){
                 if(isset($_POST['userid'])){
                     if(isset($_POST['password'])){
-                        
-                        $orderid = $_SESSION['shop']->authAndOrder($_POST['userid'], $_POST['password']);
-                        $_SESSION['orderid'] = $orderid;
-                        echo "Deine orderid lautet: ".$orderid;
+                        // Lässt nur Buchstaben und Zahlen in den Feldern zu
+                        // Das schließt Injections aus die auf Sonderzeichen angewiesen sind
+                        $regexp2 = "/[0-9a-zA-Z]/";
+                        if (preg_match($regexp2,$_POST['userid'])&& preg_match($regexp2,$_POST['password'])){
+                            $orderid = $_SESSION['shop']->authAndOrder($_POST['userid'], $_POST['password']);
+                            $_SESSION['orderid'] = $orderid;
+                            echo "Deine orderid lautet: ".$orderid;
+                        }
                     }
                 }
                 
             }
+            
+             if(isset($_POST['logout']) && strcmp($_POST['logout'],'ausloggen') == 0){
+                // Löschen der Sessionvariablen & Sessioncookies & der aktuellen gestarteten Session
+                session_unset();
+                
+                if (ini_get("session.use_cookies")) {
+                    $params = session_get_cookie_params();
+                    setcookie(session_name(), '', time() - 42000, $params["path"],
+                    $params["domain"], $params["secure"], $params["httponly"]);
+                }
+                session_destroy();
+             }
              
         
         ?>

@@ -9,6 +9,8 @@
             include 'Shop.php';
             // Session wird angelegt
             session_start();
+            // Lebensdauer der Session 1 Stunde
+            ini_set("session.cookie_lifetime","3600");
             
         ?>
     
@@ -40,11 +42,12 @@
                     // Arbeitet auf dem lokalen Array
                     }else{
                         if(isset($_POST['addButton']) && strcmp($_POST['addButton'],'zum Warenkorb hinzufuegen') == 0){
-                            // Erlaubt nur positive Zahlen in den Eingabefeldern
-                            if(!empty($_POST['Hotdog']) && is_numeric($_POST['Hotdog']) && $_POST['Hotdog'] > 0){
+                            // Erlaubt nur positive Zahlen 1-999 in den Eingabefeldern
+                            // Dadurch werden SQL-Injections mit Sonderzeichen ausgeschlossen
+                            if(!empty($_POST['Hotdog']) && is_numeric($_POST['Hotdog']) && $_POST['Hotdog'] > 0 && $_POST['Hotdog'] < 1000){
                                 $_SESSION['shop']->add('Hotdog',2,$_POST['Hotdog']);
                             }
-                            if(!empty($_POST['Ananas']) && is_numeric($_POST['Ananas']) && $_POST['Ananas'] > 0){
+                            if(!empty($_POST['Ananas']) && is_numeric($_POST['Ananas']) && $_POST['Ananas'] > 0 && $_POST['Hotdog'] < 1000){
                                 $_SESSION['shop']->add('Ananas',1,$_POST['Ananas']);
                             }
 
