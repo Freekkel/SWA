@@ -18,9 +18,25 @@ include("ShoppingCartAuth.php");
         <form action="" method="POST">
             <fieldset>
                 <legend> Log in </legend>
-                <input name="state" type="hidden" value="true" />
+                <?php
+                /** Da die Session beim Ausloggen gelöscht wird kann die Zeit Variable außer acht gelassen werden. 
+                **  Sobald ein User sich zu oft versucht einzuloggen wird er gesperrt und muss sich durch eine
+                **  mail an die administration wieder freischalten lassen.
+                **/
+                if(isset($_SESSION['tries']){
+                    if($_SESSION['tries'] < 10){
+                    echo "<input name="state" type="hidden" value="true" />
                 <input name="name" type="text" value="name" /><br />
-                <input name="password" type="text" value="password" /><br />
+                <input name="password" type="text" value="password" /><br />";
+                    else
+                        echo "You have tried to log in with wrong data too many times. Please contact our customerservice at wehelpyou@domain.com.";
+                    }
+                }
+                else
+                    echo "<input name="state" type="hidden" value="true" />
+                    <input name="name" type="text" value="name" /><br />
+                    <input name="password" type="text" value="password" /><br />";
+                ?>
             </fieldset>
         <input name="check_auth" type="submit" value="log in" />
         </form>
