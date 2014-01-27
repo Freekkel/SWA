@@ -1,0 +1,48 @@
+S 12 Ergonomie
+
+1.:
+    Inhalt:
+        
+        Überschrift/header:
+                Zur Identifikation sowohl der Seite als auch als Referenz für unseren Service.
+               
+        Navigation:
+                Ein immer erreichbarer Bereich der nach relevanz sortiert links zu allen "Gebieten" der Seite bietet
+          
+        Account/persönliche Seite:
+                Für persönliche Einstellungen und zum machen und ändern von Angaben bezüglich Adresse, Bezahlung etc.
+                Auch eigene History (zuletzt gekauft, zuletzt besucht etc.)
+                
+        Kategoriensuche:
+                eine Galerie der Kategorien (je nach Inhalt) um sich seinem gewünschten Produkt über den Kontext zu nähern.
+                    
+        Angebote:
+                einen herausragenden Bereich, der dem User aktuelle Angebote der Seite vermittelt.
+                
+        
+        
+
+    Impressum:
+    
+    Name:
+        Name und Anschrift sind nach § 5 Abs. 1 Nr 1 TMG anzugeben:
+
+        Personen:
+            Name, Vorname
+        Juristische Personen:
+            Name, Vorname des Vertretungsberechtigten + Rechtsform (bsp. GmbH)
+    
+    Kontaktaufnahme:
+        e-mail:
+            E-mail-adresse der Person/des Vertretungsberechtigten der Firma (nach § 5 Nr. 2 TMG vorgeschrieben)
+        Telefon:
+            Telefonnr. der Person/ des Vertretungsberechtigten der Firma (Nach OLG Köln vom 13.02.2004, Az 6 U 109/03 erforderlich. 
+            Nach einer anderen Auffassung war jedoch eine Telefonnummer entbehrlich: Urteil des OLG Hamm vom 17.03.2004, Az 20 U 222/03)
+        Fax:
+            Telefax wenn vorhanden (freiwillig wenn vorhanden).
+    
+    
+    
+2.:
+
+    Inhalte
